@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rana Ali — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    * { box-sizing: border-box; }
+
+    :root {
+      --bg: #0f0f13;
+      --surface: #1a1a24;
+      --text: #f0ece4;
+      --primary: #e8553d;
+      --secondary: #5b8af5;
+    }
+
+    body { font-family: 'Outfit', sans-serif; }
+
+    .font-display { font-family: 'Playfair Display', serif; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(3deg); }
+    }
+    @keyframes floatAlt {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(-4deg); }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes blobMove {
+      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+
+    .anim-float { animation: float 5s ease-in-out infinite; }
+    .anim-float-alt { animation: floatAlt 6s ease-in-out infinite; }
+    .anim-fade-up { animation: fadeSlideUp 0.8s ease-out forwards; }
+    .anim-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+    .anim-blob { animation: blobMove 8s ease-in-out infinite; }
+    .anim-wiggle { animation: wiggle 3s ease-in-out infinite; }
+
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+    .delay-5 { animation-delay: 0.75s; }
+
+    .marquee-track { animation: marquee 20s linear infinite; }
+
+    .project-card {
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 60px -15px rgba(232, 85, 61, 0.25);
+    }
+
+    .skill-pill {
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .skill-pill:hover {
+      transform: scale(1.08) rotate(-1deg);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .blob-shape {
+      position: absolute;
+      filter: blur(80px);
+      opacity: 0.15;
+    }
+
+    .section-reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+    .section-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .cta-btn {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px -8px rgba(232, 85, 61, 0.5);
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 10px; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background: var(--bg); color: var(--text);"><!-- Nav -->
+   <header class="fixed top-0 left-0 w-full z-50" style="backdrop-filter: blur(16px); background: rgba(15,15,19,0.8);">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4"><a href="#hero" class="text-xl font-bold tracking-tight" style="color: var(--primary);"> <span class="font-display italic">A</span><span class="text-sm font-light" style="color: var(--text);">R</span> </a>
+     <div class="hidden md:flex items-center gap-8 text-sm font-light tracking-wide"><a href="#about" class="nav-link" style="color: var(--text);">About</a> <a href="#work" class="nav-link" style="color: var(--text);">Work</a> <a href="#skills" class="nav-link" style="color: var(--text);">Skills</a> <a href="#contact" class="nav-link cta-btn inline-block px-5 py-2 rounded-full text-sm font-medium" style="background: var(--primary); color: var(--text);">Say Hello</a>
+     </div><button id="mobile-menu-btn" class="md:hidden" style="color: var(--text);" aria-label="Open menu"> <i data-lucide="menu" style="width:24px;height:24px;"></i> </button>
+    </nav><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 flex flex-col gap-4 text-sm font-light"><a href="#about" class="py-2 border-b" style="border-color: var(--surface); color: var(--text);">About</a> <a href="#work" class="py-2 border-b" style="border-color: var(--surface); color: var(--text);">Work</a> <a href="#skills" class="py-2 border-b" style="border-color: var(--surface); color: var(--text);">Skills</a> <a href="#contact" class="py-2" style="color: var(--primary);">Say Hello ✦</a>
+    </div>
+   </header><!-- Hero -->
+   <section id="hero" class="relative min-h-full flex items-center justify-center px-6 overflow-hidden" style="padding-top: 80px;"><!-- Decorative blobs -->
+    <div class="absolute inset-0 z-0 pointer-events-none"
+     style="
+       background-image: url('extrasaudi.png');
+       background-repeat: no-repeat;
+       background-position: top right;
+       background-size: 600px;
+       opacity: 0.6%;
+
+       -webkit-mask-image: radial-gradient(circle at top right, black 40%, transparent 30%);
+       mask-image: radial-gradient(circle at top right, black 40%, transparent 30%);
+     ">
+</div>
+<div class="absolute z-0 pointer-events-none"
+     style="
+       left: -120px;
+       bottom: 0;
+       width: 600px;
+       height: 600px;
+
+       background-image: url('extrasaudi.png');
+       background-repeat: no-repeat;
+       background-size: 600px;
+       background-position: center;
+
+       opacity: 0.6%;
+       transform: scaleX(-1);
+
+       -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+       mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+     ">
+</div>
+<div class="blob-shape anim-blob" style="width:400px;height:400px;top:-10%;right:-5%;background:var(--primary);"></div>
+    <div class="blob-shape anim-blob" style="width:300px;height:300px;bottom:5%;left:-8%;background:var(--secondary);animation-delay:2s;"></div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto"><!-- Playful emoji accent -->
+     <div class="anim-float mb-6 text-4xl">
+      ✦
+     </div>
+     <p id="el-tagline" class="anim-fade-up text-sm md:text-base font-light tracking-[0.3em] uppercase mb-6 opacity-0" style="color: var(--secondary);">Developer · Robotics & AI · Designer</p>
+     <h1 id="el-name" class="anim-fade-up delay-1 opacity-0 font-display italic text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6" style="color: var(--text);">Rana Ali</h1>
+     <p id="el-intro" class="anim-fade-up delay-2 opacity-0 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-10" style="color: var(--text); opacity: 0.7;">I craft software that solves real problems while exploring embedded systems, intelligent robotics, and modern development technologies.</p>
+     <div class="anim-fade-up delay-3 opacity-0 flex flex-wrap justify-center gap-4"><a href="#work" class="cta-btn inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium" style="background: var(--primary); color: var(--text);"> See My Work <i data-lucide="arrow-down-right" style="width:18px;height:18px;"></i> </a> <a href="#contact" class="cta-btn inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium border" style="border-color: var(--surface); color: var(--text);"> Get In Touch <i data-lucide="sparkles" style="width:18px;height:18px;"></i> </a>
+     </div><!-- Scroll indicator -->
+     <div class="anim-fade-up delay-5 opacity-0 mt-16 anim-float-alt"><i data-lucide="mouse" style="width:20px;height:20px;color:var(--text);opacity:0.3;margin:0 auto;display:block;"></i>
+     </div>
+    </div>
+   </section>
+
+<!-- Marquee -->
+<div class="overflow-hidden py-6" style="border-top:1px solid var(--surface); border-bottom:1px solid var(--surface);">
+    <div class="flex whitespace-nowrap marquee-track gap-10" style="width:max-content;">
+        <span class="text-sm font-light tracking-[0.2em] uppercase" style="color:var(--text);opacity:0.3;">
+            Software Engineering ✦ Robotics ✦ Embedded Systems ✦ Artificial Intelligence ✦ Java ✦ Arduino ✦ Web Development ✦ SQL/php ✦
+        </span>
+
+        <span class="text-sm font-light tracking-[0.2em] uppercase" style="color:var(--text);opacity:0.3;">
+            Software Engineering ✦ Robotics ✦ Embedded Systems ✦ Artificial Intelligence ✦ Java ✦ Arduino ✦ Web Development ✦ SQL/php ✦
+        </span>
+    </div>
+</div>
+
+<!-- About -->
+<section id="about" class="section-reveal py-24 md:py-32 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+
+        <p class="text-sm font-light tracking-[0.2em] uppercase mb-4"
+           style="color:var(--secondary);">
+            Who am I?
+        </p>
+
+        <h2 id="el-about-heading"
+            class="font-display italic text-3xl md:text-5xl font-bold mb-8"
+            style="color:var(--text);">
+            A little about me
+        </h2>
+
+        <p id="el-about-text"
+           class="text-base md:text-lg font-light leading-relaxed mx-auto max-w-3xl"
+           style="color:var(--text);opacity:0.7;">
+            I'm an Information Technology student interested in software engineering, robotics, and artificial intelligence. I enjoy learning through hands-on projects—from Java desktop applications and SQL databases to Arduino-based systems and intelligent robotics. Currently, I'm expanding my skills through a robotics engineering internship covering mechanical design, embedded systems, AI, and web development.
+        </p>
+
+        <div class="flex justify-center flex-wrap gap-3 mt-10">
+
+            <span class="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full"
+                  style="background:var(--surface);color:var(--text);">
+                <i data-lucide="map-pin" style="width:12px;height:12px;color:var(--primary);"></i>
+                Saudi Arabia
+            </span>
+
+            <span class="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full"
+                  style="background:var(--surface);color:var(--text);">
+                <i data-lucide="cpu" style="width:12px;height:12px;color:var(--primary);"></i>
+                Robotics
+            </span>
+
+            <span class="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full"
+                  style="background:var(--surface);color:var(--text);">
+                <i data-lucide="code-2" style="width:12px;height:12px;color:var(--primary);"></i>
+                Software Engineering
+            </span>
+
+            <span class="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full"
+                  style="background:var(--surface);color:var(--text);">
+                <i data-lucide="brain" style="width:12px;height:12px;color:var(--primary);"></i>
+                AI Enthusiast
+            </span>
+
+        </div>
+
+    </div>
+</section>
+   </section><!-- Work -->
+   <section id="work" class="section-reveal py-24 md:py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-light tracking-[0.2em] uppercase mb-4" style="color:var(--secondary);">Portfolio</p>
+      <h2 id="el-work-heading" class="font-display italic text-3xl md:text-5xl font-bold" style="color:var(--text);">Selected Work</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8" id="projects-grid"><!-- Project 1 -->
+      <!-- EDIT: change href below to point to this project's page -->
+      <a href="project-1.html" class="project-card rounded-2xl overflow-hidden cursor-pointer block" style="background:var(--surface);">
+       <div class="h-48 md:h-56 flex items-center justify-center relative" style="background: linear-gradient(135deg, #e8553d33, #5b8af533);">
+        <svg viewbox="0 0 200 120" width="160" height="96"><rect x="20" y="15" width="160" height="90" rx="8" fill="var(--text)" opacity="0.1" stroke="var(--primary)" stroke-width="1" /> <rect x="35" y="30" width="50" height="6" rx="3" fill="var(--primary)" opacity="0.6" /> <rect x="35" y="42" width="80" height="4" rx="2" fill="var(--text)" opacity="0.2" /> <rect x="35" y="52" width="65" height="4" rx="2" fill="var(--text)" opacity="0.15" /> <circle cx="150" cy="70" r="20" fill="var(--secondary)" opacity="0.3" />
+        </svg><span class="absolute top-4 right-4 text-xs px-3 py-1 rounded-full font-medium" style="background:var(--primary);color:var(--text);">Featured</span>
+       </div>
+       <div class="p-6">
+        <h3 class="text-lg font-semibold mb-1" style="color:var(--text);">Robotics Internship Project </h3>
+        <p class="text-sm font-light mb-4" style="color:var(--text);opacity:0.5;">Dog Robot built during the 2026 Summer Internship program held by Smart Methods</p>
+        <div class="flex gap-2"><span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">ROS</span> <span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">Arduino</span> <span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">Web Development</span>
+        </div>
+       </div>
+      </a><!-- Project 2 -->
+      <!-- EDIT: change href below to point to this project's page -->
+      <a href="project-2.html" class="project-card rounded-2xl overflow-hidden cursor-pointer block" style="background:var(--surface);">
+       <div class="h-48 md:h-56 flex items-center justify-center" style="background: linear-gradient(135deg, #5b8af533, #e8553d22);">
+        <svg viewbox="0 0 200 120" width="160" height="96"><rect x="50" y="10" width="100" height="100" rx="16" fill="var(--text)" opacity="0.1" stroke="var(--secondary)" stroke-width="1" /> <circle cx="100" cy="40" r="12" fill="var(--primary)" opacity="0.4" /> <rect x="70" y="60" width="60" height="5" rx="2.5" fill="var(--text)" opacity="0.2" /> <rect x="80" y="72" width="40" height="4" rx="2" fill="var(--text)" opacity="0.15" /> <rect x="75" y="88" width="50" height="12" rx="6" fill="var(--secondary)" opacity="0.4" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <h3 class="text-lg font-semibold mb-1" style="color:var(--text);">FitBase</h3>
+        <p class="text-sm font-light mb-4" style="color:var(--text);opacity:0.5;">Gym Management System built to easily keep track of gym information and manage it</p>
+        <div class="flex gap-2"><span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">Java</span> <span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">SQL</span>
+        </div>
+       </div>
+      </a><!-- Project 3 -->
+      <!-- EDIT: change href below to point to this project's page -->
+      <a href="project-3.html" class="project-card rounded-2xl overflow-hidden cursor-pointer block" style="background:var(--surface);">
+       <div class="h-48 md:h-56 flex items-center justify-center" style="background: linear-gradient(135deg, #f0ece410, #e8553d22);">
+        <svg viewbox="0 0 200 120" width="160" height="96"><rect x="15" y="20" width="75" height="80" rx="6" fill="var(--text)" opacity="0.08" stroke="var(--text)" stroke-width="0.5" /> <rect x="110" y="20" width="75" height="80" rx="6" fill="var(--text)" opacity="0.08" stroke="var(--text)" stroke-width="0.5" /> <rect x="25" y="35" width="40" height="4" rx="2" fill="var(--primary)" opacity="0.5" /> <rect x="25" y="45" width="55" height="3" rx="1.5" fill="var(--text)" opacity="0.15" /> <rect x="120" y="35" width="35" height="4" rx="2" fill="var(--secondary)" opacity="0.5" /> <rect x="120" y="45" width="50" height="3" rx="1.5" fill="var(--text)" opacity="0.15" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <h3 class="text-lg font-semibold mb-1" style="color:var(--text);">Game Center Management System</h3>
+        <p class="text-sm font-light mb-4" style="color:var(--text);opacity:0.5;">Simualtion of a game center management system built as a college project for Principles of Programming (2) </p>
+        <div class="flex gap-2"><span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">Web</span> <span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">Typography</span>
+        </div>
+       </div>
+      </a><!-- Project 4 -->
+      <!-- EDIT: change href below to point to this project's page -->
+      <a href="project-4.html" class="project-card rounded-2xl overflow-hidden cursor-pointer block" style="background:var(--surface);">
+       <div class="h-48 md:h-56 flex items-center justify-center" style="background: linear-gradient(135deg, #5b8af522, #f0ece408);">
+        <svg viewbox="0 0 200 120" width="160" height="96"><polygon points="100,15 140,50 125,95 75,95 60,50" fill="none" stroke="var(--primary)" stroke-width="1.5" opacity="0.5" /> <polygon points="100,30 128,55 118,85 82,85 72,55" fill="var(--secondary)" opacity="0.15" /> <circle cx="100" cy="60" r="8" fill="var(--primary)" opacity="0.4" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <h3 class="text-lg font-semibold mb-1" style="color:var(--text);">Creative Work</h3>
+        <p class="text-sm font-light mb-4" style="color:var(--text);opacity:0.5;">Banners and Posters commissioned by ppl this sect WILL change im just creating more projects</p>
+        <div class="flex gap-2"><span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">Branding</span> <span class="text-xs px-2.5 py-1 rounded-full" style="background:var(--bg);color:var(--secondary);">Identity</span>
+        </div>
+       </div>
+      </a>
+     </div>
+    </div>
+   </section><!-- Skills -->
+   <section id="skills" class="section-reveal py-24 md:py-32 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+     <p class="text-sm font-light tracking-[0.2em] uppercase mb-4" style="color:var(--secondary);">Toolkit</p>
+     <h2 class="font-display italic text-3xl md:text-5xl font-bold mb-12" style="color:var(--text);">Things I'm Good At</h2>
+     <div class="flex flex-wrap justify-center gap-3 md:gap-4"><span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--primary);color:var(--text);">Embedded Systems</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--surface);color:var(--text);">C++</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--secondary);color:var(--bg);">System Analysis & System Design</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--surface);color:var(--text);">HTML/CSS/JavaScript</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--primary);color:var(--text);">Machine Learning</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--surface);color:var(--text);">SQL & php</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--secondary);color:var(--bg);">ROS</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--surface);color:var(--text);">Java</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--primary);color:var(--text);">Branding</span> <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-medium cursor-default" style="background:var(--surface);color:var(--text);">C#</span> 
+     </div>
+    </div>
+   </section><!-- Contact -->
+   <section id="contact" class="section-reveal py-24 md:py-32 px-6 relative overflow-hidden">
+    <div class="blob-shape anim-blob" style="width:350px;height:350px;top:10%;right:-10%;background:var(--primary);"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+     <div class="text-5xl mb-6 anim-float">
+      &#9733;
+     </div>
+     <h2 id="el-contact-heading" class="font-display italic text-3xl md:text-5xl font-bold mb-6" style="color:var(--text);">Let's Build Together</h2>
+     <p class="text-lg font-light mb-10" style="color:var(--text);opacity:0.6;">Have an idea? A project? Or just want to say hi? I'd love to hear from you.</p><a id="el-contact-email-link" href="mailto:ranalshehri.sa@gmail.com" class="cta-btn inline-flex items-center gap-3 px-10 py-4 rounded-full text-lg font-medium" style="background:var(--primary);color:var(--text);"> <i data-lucide="mail" style="width:22px;height:22px;"></i> <span id="el-contact-email">ranalshehri.sa@gmail.com</span> </a>
+     <div class="flex justify-center gap-6 mt-12"><a href="https://github.com/ranalsh" class="p-3 rounded-full transition-all duration-300 hover:scale-110" style="background:var(--surface);color:var(--text);" aria-label="GitHub"> <i data-lucide="github" style="width:20px;height:20px;"></i> </a> <a href="https://www.linkedin.com/in/ranalshehriksa" class="p-3 rounded-full transition-all duration-300 hover:scale-110" style="background:var(--surface);color:var(--text);" aria-label="LinkedIn"> <i data-lucide="linkedin" style="width:20px;height:20px;"></i> </a>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 px-6 text-center" style="border-top:1px solid var(--surface);">
+    <p class="text-xs font-light" style="color:var(--text);opacity:0.3;">© 2026 Rana Ali — Built with HTML, Tailwind CSS, JavaScript, and lots of ♥</p>
+   </footer>
+  </div>
+  <script>
+    // --- Config & Element SDK ---
+    const defaultConfig = {
+      background_color: '#0f0f13',
+      surface_color: '#1a1a24',
+      text_color: '#f0ece4',
+      primary_color: '#e8553d',
+      secondary_color: '#5b8af5',
+      font_family: 'Outfit',
+      font_size: 16,
+      hero_name: 'Rana Ali',
+      hero_tagline: 'Designer · Developer · Dreamer',
+      hero_intro: 'I craft digital experiences that feel alive — blending bold design with clean code to make the web a more delightful place.',
+      about_heading: 'A little about me',
+      about_text: "I'm a multidisciplinary creative who lives at the intersection of design and technology. With a background in visual arts and computer science, I bring a unique perspective to every project — obsessing over pixel-perfect details while keeping the big picture in focus.",
+      work_heading: 'Selected Work',
+      contact_heading: "Let's Build Together",
+      contact_email: 'ranalshehri.ri@gmail.com'
+    };
+
+    function applyConfig(config) {
+      const c = key => config[key] || defaultConfig[key];
+      const root = document.documentElement.style;
+
+      root.setProperty('--bg', c('background_color'));
+      root.setProperty('--surface', c('surface_color'));
+      root.setProperty('--text', c('text_color'));
+      root.setProperty('--primary', c('primary_color'));
+      root.setProperty('--secondary', c('secondary_color'));
+
+      const baseFont = c('font_family');
+      const baseFontStack = `${baseFont}, 'Outfit', sans-serif`;
+      document.body.style.fontFamily = baseFontStack;
+
+      const bs = c('font_size');
+      document.querySelectorAll('.font-display').forEach(el => {
+        el.style.fontFamily = `'Playfair Display', ${baseFontStack}`;
+      });
+
+      // Apply text content
+      const el = id => document.getElementById(id);
+      if (el('el-name')) el('el-name').textContent = c('hero_name');
+      if (el('el-tagline')) el('el-tagline').textContent = c('hero_tagline');
+      if (el('el-intro')) el('el-intro').textContent = c('hero_intro');
+      if (el('el-about-heading')) el('el-about-heading').textContent = c('about_heading');
+      if (el('el-about-text')) el('el-about-text').textContent = c('about_text');
+      if (el('el-work-heading')) el('el-work-heading').textContent = c('work_heading');
+      if (el('el-contact-heading')) el('el-contact-heading').textContent = c('contact_heading');
+      if (el('el-contact-email')) el('el-contact-email').textContent = c('contact_email');
+      if (el('el-contact-email-link')) el('el-contact-email-link').href = 'mailto:' + c('contact_email');
+
+      // Font size scaling
+      document.querySelectorAll('h1').forEach(e => e.style.fontSize = `${bs * 3.5}px`);
+      document.querySelectorAll('h2').forEach(e => e.style.fontSize = `${bs * 2.5}px`);
+      document.querySelectorAll('h3').forEach(e => e.style.fontSize = `${bs * 1.15}px`);
+      document.querySelectorAll('p').forEach(e => {
+        if (!e.closest('footer') && !e.classList.contains('text-xs') && !e.classList.contains('text-sm')) {
+          e.style.fontSize = `${bs}px`;
+        }
+      });
+
+      // Recolor nav link underlines
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.style.setProperty('color', c('text_color'));
+        const after = link.querySelector('::after');
+      });
+      const styleSheet = document.styleSheets[0];
+      let ruleExists = false;
+      for (let i = 0; i < styleSheet.cssRules.length; i++) {
+        if (styleSheet.cssRules[i].selectorText === '.nav-link::after') {
+          styleSheet.cssRules[i].style.backgroundColor = c('primary_color');
+          ruleExists = true;
+          break;
+        }
+      }
+      if (!ruleExists) {
+        try { styleSheet.insertRule(`.nav-link::after { background-color: ${c('primary_color')}; }`, styleSheet.cssRules.length); } catch(e) {}
+      }
+    }
+
+    function makeMutable(configObj, key) {
+      return {
+        get: () => configObj[key] || defaultConfig[key],
+        set: (value) => {
+          configObj[key] = value;
+          window.elementSdk.setConfig({ [key]: value });
+        }
+      };
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => { applyConfig(config); },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            makeMutable(config, 'background_color'),
+            makeMutable(config, 'surface_color'),
+            makeMutable(config, 'text_color'),
+            makeMutable(config, 'primary_color'),
+            makeMutable(config, 'secondary_color'),
+          ],
+          borderables: [],
+          fontEditable: makeMutable(config, 'font_family'),
+          fontSizeable: makeMutable(config, 'font_size'),
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['hero_name', config.hero_name || defaultConfig.hero_name],
+          ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+          ['hero_intro', config.hero_intro || defaultConfig.hero_intro],
+          ['about_heading', config.about_heading || defaultConfig.about_heading],
+          ['about_text', config.about_text || defaultConfig.about_text],
+          ['work_heading', config.work_heading || defaultConfig.work_heading],
+          ['contact_heading', config.contact_heading || defaultConfig.contact_heading],
+          ['contact_email', config.contact_email || defaultConfig.contact_email],
+        ])
+      });
+    }
+
+    // --- Mobile menu toggle ---
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+
+    // --- Scroll reveal ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
+
+    // --- Smooth scroll ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        // Only intercept same-page hash links, let normal navigation happen otherwise
+        const targetSel = this.getAttribute('href');
+        const target = document.querySelector(targetSel);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Init icons
+    lucide.createIcons();
+  </script>
+ </body>
+</html>
