@@ -6,16 +6,18 @@ Welcome to my (public) journal of achievements! This website showcases some of t
 
 The portfolio is organized into multiple pages:
 
-* **index.html** – Home page and introduction.
-* **project1.html** – First showcased project.
+* **index.html** – Home page and introduction: includes an "about me" section, projects showcase section, skills section, and a contact information section.
+* **project1.html** – First showcased project: includes the code, demo, images and/or videos, the project name along with the project description.
 * **project2.html** – Second showcased project.
 * **project3.html** – Third showcased project.
 * **project4.html** *(coming soon)* – A separate portfolio focused on my creative work.
 
+Note: the project pages are still a work in progress!
+
 ## Technologies
 
-* HTML5
-* CSS3
+* HTML
+* CSS
 * JavaScript
 
 ## Current Status
@@ -28,6 +30,7 @@ Clone the repository and open `index.html` in your browser.
 
 ## Future Plans
 
+* Add a CV/resume section.
 * Add GFX design portfolio.
 * More advanced projects.
 * Better animations and UI.
