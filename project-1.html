@@ -3,8 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- EDIT: page title -->
-  <title>Color Recognition — Rana Ali</title>
+  <title>CHATBOT — Rana Ali</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,45 +57,38 @@
      <a href="index.html" class="text-xl font-bold tracking-tight" style="color: var(--primary);">
       <span class="font-display italic">A</span><span class="text-sm font-light" style="color: var(--text);">R</span>
      </a>
-     <!-- this always points back to the main portfolio page -->
      <a href="index.html#work" class="back-link inline-flex items-center gap-2 text-sm font-light" style="color: var(--text);">
       <i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Back to Work
      </a>
     </nav>
    </header>
-   
+
 
    <!-- Header / Hero -->
    <section class="px-6" style="padding-top: 140px; padding-bottom: 60px;">
     <div class="max-w-4xl mx-auto">
 
-     <!-- category / eyebrow label -->
      <p class="anim-fade-up text-sm font-light tracking-[0.3em] uppercase mb-4 opacity-0" style="color: var(--secondary);">
-      AI · OpenCV
+      AI 
      </p>
 
-     <!-- EDIT: project title -->
+     <!-- EDIT #2: project name / title -->
      <h1 class="anim-fade-up delay-1 opacity-0 font-display italic text-4xl md:text-6xl font-bold leading-tight mb-6" style="color: var(--text);">
-      Colour Recognition
+      Voice Chatbot
      </h1>
 
-     <!-- EDIT: short project description (1-3 sentences) -->
      <p class="anim-fade-up delay-2 opacity-0 text-lg font-light leading-relaxed max-w-2xl mb-8" style="color: var(--text); opacity: 0.7;">
-      placeholder for now cus im still working on it <a href="https://s-m.com.sa/ar/index.html" style="color: rgb(70, 159, 255)">@Smart Methods</a>
+      Chatbot made during my internship <a href="https://s-m.com.sa/ar/index.html" style="color: rgb(70, 159, 255)">@Smart Methods</a>
      </p>
 
-      <div class="anim-fade-up delay-2 opacity-0 flex flex-wrap gap-2 mb-10">
-      <span class="text-xs px-3 py-1.5 rounded-full" style="background:var(--surface);color:var(--secondary);">ROS</span>
-      <span class="text-xs px-3 py-1.5 rounded-full" style="background:var(--surface);color:var(--secondary);">Arduino</span>
+     <div class="anim-fade-up delay-2 opacity-0 flex flex-wrap gap-2 mb-10">
+      <span class="text-xs px-3 py-1.5 rounded-full" style="background:var(--surface);color:var(--secondary);">Python</span>
+      <span class="text-xs px-3 py-1.5 rounded-full" style="background:var(--surface);color:var(--secondary);">AI</span>
       <span class="text-xs px-3 py-1.5 rounded-full" style="background:var(--surface);color:var(--secondary);">Web Development</span>
      </div>
 
-     <!-- links -->
      <div class="anim-fade-up delay-3 opacity-0 flex flex-wrap gap-4">
-      <a href="#" target="_blank" rel="noopener" class="cta-btn inline-flex items-center gap-2 px-7 py-3 rounded-full font-medium" style="background: var(--primary); color: var(--text);">
-       Live Demo <i data-lucide="external-link" style="width:16px;height:16px;"></i>
-      </a>
-      <a href="#" target="_blank" rel="noopener" class="cta-btn inline-flex items-center gap-2 px-7 py-3 rounded-full font-medium border" style="border-color: var(--surface); color: var(--text);">
+      <a href="https://github.com/ranalshehri/VoiceChatBot" target="_blank" rel="noopener" class="cta-btn inline-flex items-center gap-2 px-7 py-3 rounded-full font-medium border" style="border-color: var(--surface); color: var(--text);">
        View Code <i data-lucide="github" style="width:16px;height:16px;"></i>
       </a>
      </div>
@@ -104,13 +96,10 @@
     </div>
    </section>
 
-   <!-- Cover image -->
+  
    <section class="px-6 mb-16">
     <div class="max-w-5xl mx-auto rounded-2xl overflow-hidden" style="background: var(--surface); aspect-ratio: 16/9;">
-     <!-- ill replace this placeholder with an <img src="..." class="w-full h-full object-cover" alt="..."> -->
-     <div class="w-full h-full flex items-center justify-center" style="background: linear-gradient(135deg, #e8553d33, #5b8af533);">
-      <span class="text-sm font-light" style="color: var(--text); opacity: 0.4;">Cover image placeholder</span>
-     </div>
+     <img src="voicemodel.png" class="w-full h-full object-cover" alt="Color Recognition project cover">
     </div>
    </section>
 
@@ -118,31 +107,16 @@
    <section class="px-6 pb-24">
     <div class="max-w-3xl mx-auto">
 
-     <!-- EDIT: section heading + body copy -->
+     <!-- EDIT #7: Overview text -->
      <h2 class="font-display italic text-2xl md:text-3xl font-bold mb-4" style="color: var(--text);">Overview</h2>
      <p class="text-base font-light leading-relaxed mb-10" style="color: var(--text); opacity: 0.7;">
-      ill add details about the project: the goal, role, the tools used, and any challenges i solved along the way cus ik there will be some.
+      General purposes voice model that is able to handle both English, and Arabic. Tools involve COHERE API, python, and simple web design tools.
      </p>
 
-     <h2 class="font-display italic text-2xl md:text-3xl font-bold mb-4" style="color: var(--text);">What I Built</h2>
-     <p class="text-base font-light leading-relaxed mb-10" style="color: var(--text); opacity: 0.7;">
-      ill replace this paragraph with a walkthrough of the key features or components.
-     </p>
-
-     <!-- EDIT: extra image gallery — duplicate the div to add more images, delete the whole section if not needed -->
-     <div class="grid sm:grid-cols-2 gap-4 mb-10">
-      <div class="gallery-item rounded-xl overflow-hidden" style="background: var(--surface); aspect-ratio: 4/3;">
-       <div class="w-full h-full flex items-center justify-center" style="opacity:0.4; font-size: 0.8rem;">Image placeholder</div>
-      </div>
-      <div class="gallery-item rounded-xl overflow-hidden" style="background: var(--surface); aspect-ratio: 4/3;">
-       <div class="w-full h-full flex items-center justify-center" style="opacity:0.4; font-size: 0.8rem;">Image placeholder</div>
-      </div>
-     </div>
-
-    </div>
+    
    </section>
 
-   <!-- Next project / back to work -->
+   <!-- Back to work -->
    <section class="px-6 pb-24 text-center">
     <a href="index.html#work" class="cta-btn inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium border" style="border-color: var(--surface); color: var(--text);">
      <i data-lucide="arrow-left" style="width:18px;height:18px;"></i> Back to All Work
